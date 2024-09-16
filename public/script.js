@@ -112,20 +112,32 @@ const loadList = (data) => {
                 />
               </div>
 
-              <div class="flex justify-between px-3">
-                <p class="text-lg font-semibold">${item.strMeal}</p>
-                <p>
+              <div class="flex justify-between items-center px-3 mb-3">
+                <p class="text-lg font-semibold">${
+                  item.strMeal.length > 20
+                    ? item.strMeal.slice(0, 20)
+                    : item.strMeal
+                }</p>
+                <p class="text-sm font-semibold">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star-half-stroke"></i>
                   <i class="fa-regular fa-star"></i>
                 </p>
               </div>
               <p
                 class="text-lg leading-4 *: font-light justify-self-start px-3"
               >
-                Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.
+              ${
+                item.strInstructions.length > 50
+                  ? item.strInstructions.slice(0, 50)
+                  : item.strInstructions
+              }
               </p>
               <div class="text-center mt-5 px-3">
                 <button
-                  class="bg-secondary text-white px-4 py-2 rounded-md max-w-1/5" onclick="showDetails(${item.idMeal})"
+                  class="bg-secondary text-white px-4 py-2 rounded-md max-w-1/5" onclick="showDetails(${
+                    item.idMeal
+                  })"
                 >
                   show Details
                 </button>
