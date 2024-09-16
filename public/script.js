@@ -58,8 +58,10 @@ function bindEvent(callback, eventType, targets) {
   });
 }
 
+// initial loading data
 getData("Potato");
 
+// Load data by clicking menu
 bindEvent(
   (e) => {
     const searchTerm = e.target.innerText.trim();
@@ -69,19 +71,14 @@ bindEvent(
       link.classList.remove("active");
     });
     e.target.classList.add("active");
-    // e.target.href = "#sectionFood";
-
+    e.target.href = "#sectionFood";
   },
   "click",
   links
 );
 
-// btnSearch.addEventListener("click", function () {
-//   getData(inpSearch.value);
-// });
-
+// get data from api function
 function getData(search) {
-  debugger;
   let url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`;
   fetch(url)
     .then((response) => {
@@ -92,16 +89,14 @@ function getData(search) {
     })
     .then((data) => {
       loadList(data.meals);
-      // localStorage.setItem('items', JSON.stringify(data.meals))
-      // console.log(typeof localStorage.getItem('items'));
     })
     .catch((error) => {
       return { status: "failed", items: [] };
     });
 }
 
+// Populating data on list
 const loadList = (data) => {
-  debugger;
   let listContainer = document.querySelector("#list-container");
   let childItem = ``;
 
@@ -130,7 +125,7 @@ const loadList = (data) => {
               </p>
               <div class="text-center mt-5 px-3">
                 <button
-                  class="bg-secondary text-white px-4 py-2 rounded-md max-w-1/5"
+                  class="bg-secondary text-white px-4 py-2 rounded-md max-w-1/5" onclick="showDetails(${item.idMeal})"
                 >
                   show Details
                 </button>
@@ -138,4 +133,85 @@ const loadList = (data) => {
             </div>`;
   });
   listContainer.innerHTML = childItem;
+};
+
+// Show detail click event
+const showDetails = (id) => {
+  getDataById(id);
+};
+
+function getDataById(id) {
+  let url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
+  fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      loadDataDetails(data.meals);
+    })
+    .catch((error) => {
+      return { status: "failed", items: [] };
+    });
+}
+
+const loadDataDetails = (data) => {
+  debugger;
+  data = data[0];
+  let modal = document.querySelector("#my_modal_1");
+  modal.innerHTML = "";
+  let dataDetails = ``;
+  dataDetails += `<div class="modal-box">
+        <h3 class="text-xl font-bold">${data.strMeal}</h3>
+        <div class="flex flex-row gap-3 items-center mt-2">
+          <img
+            class="size-40 rounded-lg shadow-sm"
+            src=${data.strMealThumb}
+            alt=""
+          />
+          <div>
+            <p class="text-lg">
+              <span class="font-semibold">Category: </span>${data.strCategory}
+            </p>
+            <p class="font-Lobster font-extralight">
+              <span class="font-semibold">Ingridients: </span>${
+                data.strIngredient1
+              }, ${data.strIngredient2}, ${data.strIngredient3}, ${
+    data.strIngredient4
+  }, ${data.strIngredient5}
+            </p>
+            <div>
+              <a href=${data.strYoutube}
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+              <a
+                href=${data.strSource ? data.strSource : ""}
+                ><i class="fa-brands fa-sourcetree"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <p class="py-4">
+        ${
+          data.strInstructions.length > 100
+            ? data.strInstructions.slice(0, 100)
+            : data.strInstructions
+        }
+        </p>
+        <div class="modal-action">
+          <form method="dialog">
+            <button
+              class="btn bg-primary text-white border-none hover:bg-secondary"
+            >
+              Close
+            </button>
+          </form>
+        </div>
+      </div>`;
+
+  modal.innerHTML = dataDetails;
+  modal.showModal();
 };
