@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Corner</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- -------------------Swiper CSS------------------------ -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <!-- -------------------Main CSS------------------------ -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header
+      class="bg-[#ffffff] text-primary hover:text-[#ff3838] p-4 shadow-xl fixed left-0 top-0 z-50 w-full"
+    >
+      <nav class="container flex items-center justify-between h-16 sm:h-20">
+        <div class="flex flex-row gap-4 items-center">
+          <img class="w-20" src="./images/risan food logo 1.png" alt="Logo" />
+          <p class="font-Lobster text-3xl font-semibold">Risan Food</p>
+        </div>
+        <div
+          id="nav-menu"
+          class="absolute top-0 left-[-100%] flex items-center justify-center bg-gray-100/80 backdrop-blur-sm duration-300 min-h-[80vh] w-full overflow-hidden md:static md:min-h-fit md:bg-transparent md:w-auto"
+        >
+          <ul class="flex flex-col md:flex-row gap-4 items-center">
+            <li>
+              <a
+                class="inline-block active font-semibold nav-link hover:bg-secondary hover:text-white px-4 py-2 rounded-md duration-300"
+                href="#"
+                >Potato</a
+              >
+            </li>
+            <li>
+              <a
+                class="inline-block font-semibold nav-link hover:bg-secondary hover:text-white px-4 py-2 rounded-md duration-300"
+                href="#"
+                >Soup</a
+              >
+            </li>
+            <li>
+              <a
+                class="inline-block font-semibold nav-link hover:bg-secondary hover:text-white px-4 py-2 rounded-md duration-300"
+                href="#"
+                >Chicken</a
+              >
+            </li>
+            <li>
+              <a
+                class="inline-block font-semibold nav-link hover:bg-secondary hover:text-white px-4 py-2 rounded-md duration-300"
+                href="#"
+                >Beef</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="text-xl sm:text-3xl cursor-pointer z-50 md:hidden">
+          <i id="hamburger" class="fa-solid fa-bars"></i>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!-- -------------------Hero / carosoul Section------------------------ -->
+      <section class="mt-24">
+        <div class="">
+          <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide relative">
+                <img
+                  class="block"
+                  src="images/risan food carousal 1.png"
+                  alt=""
+                />
+                <div
+                  class="w-4/12 absolute top-1/3 -right-3 -translate-y-1/ z-50"
+                >
+                  <p
+                    class="text-primary font-Lobster font-light text-sm md:text-xl lg:text-4xl leading-5 md:leading-7 lg:leading-10 tracking-wider"
+                  >
+                    "But restaurants <br />
+                    so often profess some sort of <br />
+                    philosophy"
+                  </p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img src="images/risan food carousal 2.png" alt="" />
+                <div
+                  class="w-4/12 absolute top-1/3 -right-3 -translate-y-1/ z-50"
+                >
+                  <p
+                    class="text-primary font-Lobster font-light text-sm md:text-xl lg:text-4xl leading-5 md:leading-7 lg:leading-10 tracking-wider"
+                  >
+                    "The food is fantastic with a choice of dinner."
+                  </p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img src="images/risan food carousal 3.png" alt="" />
+                <div
+                  class="w-4/12 absolute top-1/3 -right-3 -translate-y-1/ z-50"
+                >
+                  <p
+                    class="text-white font-Lobster font-light text-sm md:text-xl lg:text-4xl leading-5 md:leading-7 lg:leading-10 tracking-wider"
+                  >
+                    "Dinner in the restaurant was worth the trip on its own."
+                  </p>
+                </div>
+              </div>
+              ...
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- If we need scrollbar -->
+          </div>
+        </div>
+      </section>
+      <section id="sectionFood">
+        <div class="container">
+          <div
+            id="list-container"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-rows-[auto_1fr_auto_auto] py-6 gap-x-8 space-y-4"
+          ></div>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="text-center text-primary py-32 space-y-4 -mb-12">
+            <h2 class="text-5xl font-Lobster font-bold">How Can We Help You</h2>
+            <p class="text-lg">we are here to answer all your questions</p>
+          </div>
+          <div class="space-y-2">
+            <div class="collapse collapse-arrow bg-primary text-white">
+              <input type="radio" name="my-accordion-2" checked="checked" />
+              <div class="collapse-title text-xl font-medium">
+                Click to open this one and close others
+              </div>
+              <div class="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
+            <div class="collapse collapse-arrow bg-primary text-white">
+              <input type="radio" name="my-accordion-2" />
+              <div class="collapse-title text-xl font-medium">
+                Click to open this one and close others
+              </div>
+              <div class="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
+            <div class="collapse collapse-arrow bg-primary text-white">
+              <input type="radio" name="my-accordion-2" />
+              <div class="collapse-title text-xl font-medium">
+                Click to open this one and close others
+              </div>
+              <div class="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-primary mt-4 text-white">
+      <div
+        class="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8"
+      >
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <div>
+            <div class="flex flex-row gap-4 items-center">
+              <img
+                class="w-20"
+                src="./images/risan food logo 1.png"
+                alt="Logo"
+              />
+              <p class="font-Lobster text-3xl font-semibold">Risan Food</p>
+            </div>
+            <p class="mt-4 max-w-x">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non
+              cupiditate quae nam molestias.
+            </p>
+
+            <ul class="mt-8 flex gap-6">
+              <li>
+                <a
+                  href="#"
+                  rel="noreferrer"
+                  target="_blank"
+                  class="transition hover:opacity-75"
+                >
+                  <i class="fa-brands fa-facebook-f text-xl"></i>
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#"
+                  rel="noreferrer"
+                  target="_blank"
+                  class="transition hover:opacity-75"
+                >
+                  <i class="fa-brands fa-instagram text-xl"></i>
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#"
+                  rel="noreferrer"
+                  target="_blank"
+                  class="transition hover:opacity-75"
+                >
+                  <i class="fa-brands fa-twitter text-xl"></i>
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#"
+                  rel="noreferrer"
+                  target="_blank"
+                  class="transition hover:opacity-75"
+                >
+                  <i class="fa-regular fa-envelope text-xl"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4"
+          >
+            <div>
+              <p class="font-medium">Services</p>
+
+              <ul class="mt-6 space-y-4 text-sm">
+                <li>
+                  <a href="#" class="transition hover:opacity-75">
+                    1on1 Coaching
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="transition hover:opacity-75">
+                    Company Review
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="transition hover:opacity-75">
+                    Accounts Review
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="transition hover:opacity-75">
+                    HR Consulting
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="transition hover:opacity-75">
+                    SEO Optimisation
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <p class="font-medium">Company</p>
+
+              <ul class="mt-6 space-y-4 text-sm">
+                <li>
+                  <a href="#" class="transition hover:opacity-75"> About </a>
+                </li>
+
+                <li>
+                  <a href="#" class="transition hover:opacity-75">
+                    Meet the Team
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="transition hover:opacity-75">
+                    Accounts Review
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <p class="font-medium">Helpful Links</p>
+
+              <ul class="mt-6 space-y-4 text-sm">
+                <li>
+                  <a href="#" class="transition hover:opacity-75"> Contact </a>
+                </li>
+
+                <li>
+                  <a href="#" class="transition hover:opacity-75"> FAQs </a>
+                </li>
+
+                <li>
+                  <a href="#" class="transition hover:opacity-75">
+                    Live Chat
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <p class="font-medium">Legal</p>
+
+              <ul class="mt-6 space-y-4 text-sm">
+                <li>
+                  <a href="#" class="transition hover:opacity-75">
+                    Accessibility
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="transition hover:opacity-75">
+                    Returns Policy
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="transition hover:opacity-75">
+                    Refund Policy
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="transition hover:opacity-75">
+                    Hiring Statistics
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xs">&copy; 2022. Risan Food. All rights reserved.</p>
+      </div>
+    </footer>
+    <!-- Modal -->
+    <dialog id="my_modal_1" class="modal">
+      <div class="modal-box">
+        <h3 class="text-lg font-bold">Hello!</h3>
+        <p class="py-4">Press ESC key or click the button below to close</p>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+    <!-- -------------------Swiper JS------------------------- -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- -------------------script------------------------- -->
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Lobster&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-white;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  @apply text-[#ff4d4d];
+}
+.swiper-pagination-bullet {
+  @apply bg-[#ff4d4d];
+}
+
+.active {
+  @apply bg-secondary text-white;
+}
