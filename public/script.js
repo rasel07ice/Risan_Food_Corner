@@ -227,3 +227,79 @@ const loadDataDetails = (data) => {
   modal.innerHTML = dataDetails;
   modal.showModal();
 };
+
+const reviews = [
+  {
+    name: "Faiyad Karim",
+    disignation: "Artist",
+    message:
+      "Awesome taste, love to eal, delicious, be happy eating healthy food",
+    url: "images/review-1.jpg",
+  },
+  {
+    name: "Fatema tuz zohra",
+    disignation: "Service Holder",
+    message:
+      "Spicy taste, love to eal, delicious, be happy eating healthy food",
+    url: "images/review-3.jpg",
+  },
+  {
+    name: "Nabiul Karim",
+    disignation: "Service Holder",
+    message:
+      "Explendid reciepe, love to eal, delicious, be happy eating healthy food",
+    url: "images/review-2.jpg",
+  },
+];
+
+const inpName = document.querySelector("#inpName");
+const inpDesig = document.querySelector("#inpDesig");
+const textAreaMessage = document.querySelector("#textAreaMessage");
+const customerReviewUL = document.querySelector(".customer-review");
+
+const loadReview = (paramreviews) => {
+  const sortedReviews =
+    paramreviews.length > 5
+      ? paramreviews.slice(-5).reverse()
+      : paramreviews.reverse();
+  let childReviews = ``;
+  sortedReviews.map((review) => {
+    childReviews += `<li>
+                  <div class="bg-primary text-white p-6 rounded-md">
+                    <p class="text-sm">
+                      ${review.message}
+                    </p>
+                    <div class="flex items-center pt-4">
+                      <img
+                        src=${review.url}
+                        alt="review"
+                        class="w-12 h-12 rounded-full"
+                      />
+                      <div class="ml-4">
+                        <p class="text-yellow-500 text-lg uppercase">
+                        ${review.name}
+                        </p>
+                        <p>${review.disignation}</p>
+                      </div>
+                      <i class="fa-solid fa-quote-right ml-auto text-xl"></i>
+                    </div>
+                  </div>
+                </li>`;
+  });
+  customerReviewUL.innerHTML = childReviews;
+};
+
+loadReview(reviews);
+const addReview = () => {
+  debugger;
+  let name = inpName.value;
+  let desig = inpDesig.value;
+  let message = textAreaMessage.value;
+  reviews.push({
+    name: name,
+    disignation: desig,
+    message: message,
+    url: "images/review-2.jpg",
+  });
+  loadReview(reviews);
+};
