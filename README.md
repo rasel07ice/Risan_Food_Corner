@@ -17,6 +17,7 @@ A well khown food delivery website around the country.
 - Click menu to select your desired food
 - In FAQ your will get your general queries answer
 - In footer, general contact & copyright infos are displayed
+- user can drop his/her review dynamically
 
 
 ## Ussage Technology
