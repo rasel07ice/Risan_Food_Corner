@@ -102,7 +102,7 @@ const loadList = (data) => {
 
   data.map((item) => {
     childItem += ` <div
-              class="grid row-span-4 grid-rows-subgrid shadow-md border border-gray-200 rounded-md pb-6"
+              class="grid row-span-4 grid-rows-subgrid shadow-md border border-gray-200 rounded-md pb-6 hover:-translate-y-1 duration-300"
             >
               <div class="p-3">
                 <img
