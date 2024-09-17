@@ -18,6 +18,7 @@ A well khown food delivery website around the country.
 - In FAQ your will get your general queries answer
 - In footer, general contact & copyright infos are displayed
 - user can drop his/her review dynamically
+- Dynamic show details button is added
 
 
 ## Ussage Technology
